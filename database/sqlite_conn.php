@@ -9,6 +9,7 @@ try{
     $dbh = new PDO('sqlite:../data/user.db');
     echo 'connect database ok';
     //开启事务 若不开启 则自动提交
+    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->beginTransaction();
     /*建立数据表*/
     $dbh->exec("CREATE TABLE user(id INTEGER ,name VARCHAR(255),age INTEGER)");
@@ -19,12 +20,12 @@ try{
     echo 'insert data ok';
     /*事务提交*/
     $dbh->commit();
-    $dbh->beginTransaction();
-    $sth = $dbh->prepare("SEELCT * FROM user");
-    $sth->execute();
-    $res = $sth->fetchAll();
+//    $dbh->beginTransaction();
+//    $sth = $dbh->prepare("SEELCT * FROM user");
+//    $sth->execute();
+//    $res = $sth->fetchAll();
 
-    var_dump($res);
+//    var_dump($res);
     $dbh = null;
 } catch (PDOException $e) {
     echo 'connect failed:'.$e->getMessage();
