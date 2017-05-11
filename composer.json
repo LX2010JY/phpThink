@@ -1,0 +1,12 @@
+{
+    "name": "luoxiao/thin-in-php",
+    "authors": [
+        {
+            "name": "LX2010JY",
+            "email": "LX2010JY@163.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^1.22"
+    }
+}

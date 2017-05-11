@@ -8,5 +8,4 @@
 $redis = new Redis();
 $redis->connect('127.0.0.1',6379);
 $redis->set('username','lushuozhi');
-echo $redis->get('test');
 echo $redis->get('username');
