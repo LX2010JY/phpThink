@@ -36,3 +36,19 @@ array_key_exists('key',$arr);
 array_reverse($arr);
 #数组查找位置
 array_search('value',$arr);
+
+
+/*不使用临时变量交换两个变量值*/
+#这种方式不会比使用临时变量快
+function switch_two_val($a,$b) {
+    list($b,$a) = array($a,$b);
+}
+
+
+$stooges = array('Moe','Larry','Curly');
+$stooge_moe = 'Moses Horwitz';
+$stooge_larry = 'Louis Feinberg';
+$stooge_curly = 'Jerome Horwitz';
+foreach ($stooges as $s) {
+    print "$s's real name was {${'stooge_' . strtolower($s)}} . <br>";
+}
